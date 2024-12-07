@@ -1,16 +1,35 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import Footer from './Components/Footer';
-import General from './Screen/General';
+import React, { useState } from "react";
+import { View, StyleSheet } from "react-native";
+
+import Footer from "./Components/Footer";
+
+import General from "./Screen/General";
+import Advance from "./Screen/Advance";
+import Cgpa from "./Screen/Cgpa";
 
 const App = () => {
+  const [activeScreen, setActiveScreen] = useState("General");
+
+  const renderScreen = () => {
+    switch (activeScreen) {
+      case "General":
+        return <General />;
+
+      case "Advance":
+        return <Advance />;
+
+      case "Cgpa":
+        return <Cgpa />;
+
+      default:
+        return <General />;
+    }
+  };
+
   return (
     <View style={styles.container}>
-      {/* Your main content goes here */}
-      <View style={styles.content}>
-        {/* Calculator content */}
-      </View>
-      <Footer />
+      <View style={styles.content}>{renderScreen()}</View>
+      <Footer setScreen={setActiveScreen} />
     </View>
   );
 };
@@ -18,11 +37,10 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: "#fff",
   },
   content: {
     flex: 1,
-    // Additional styles for your calculator screen
   },
 });
 
