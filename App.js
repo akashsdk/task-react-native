@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import Footer from './Components/Footer';
+import General from './Screen/General';
 
-export default function App() {
+const App = () => {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app kkk!</Text>
-      <StatusBar style="auto" />
+      {/* Your main content goes here */}
+      <View style={styles.content}>
+        {/* Calculator content */}
+      </View>
+      <Footer />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#f5f5f5',
+  },
+  content: {
+    flex: 1,
+    // Additional styles for your calculator screen
   },
 });
+
+export default App;
